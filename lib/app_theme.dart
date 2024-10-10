@@ -39,10 +39,15 @@ class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: lightPrimary,
-        
+        backgroundColor: lightPrimary,    
       )
-    )
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+        iconColor: MaterialStateProperty.all(lightPrimary),
+        iconSize: MaterialStateProperty.all(35.0),
+      )
+    ),
 
   );
 
