@@ -157,18 +157,15 @@ class QuranTap extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.09,
-              ),
+                padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width * 0.09,),
+
               child: Text(
                 'عدد الآيات',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.09,
-              ),
+              padding: EdgeInsetsDirectional.only(end: MediaQuery.of(context).size.width * 0.09,),
               child: Text(
                 'إسم السورة',
                 style: Theme.of(context).textTheme.headlineSmall,
@@ -183,8 +180,7 @@ class QuranTap extends StatelessWidget {
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.15, top: 5.0),
+             padding: EdgeInsetsDirectional.only(end: MediaQuery.of(context).size.width * 0.15, top: 5.0),
             child: ListView.separated(
               itemBuilder: (_, index) => InkWell(
                 onTap: () => Navigator.of(context).pushNamed(
@@ -196,7 +192,7 @@ class QuranTap extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
+              padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width * 0.15, top: 5.0),
                       child: Text(
                         num_ayat[index],
                         style: Theme.of(context).textTheme.headlineSmall,
