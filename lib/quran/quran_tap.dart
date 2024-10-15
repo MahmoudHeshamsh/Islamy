@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islam/quran/quran_content.dart';
+import 'package:islam/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:islam/app_theme.dart';
+
 
 class QuranTap extends StatelessWidget {
   List<String> suraNames = [
@@ -136,6 +140,8 @@ class QuranTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     return Column(
       children: [
         Image.asset(
@@ -144,7 +150,7 @@ class QuranTap extends StatelessWidget {
         ),
         Divider(
           height: 10,
-          color: Theme.of(context).primaryColor,
+          color: settingsProvider.isDark? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 3,
         ),
         Row(
@@ -172,7 +178,7 @@ class QuranTap extends StatelessWidget {
         ),
         Divider(
           height: 10,
-          color: Theme.of(context).primaryColor,
+          color: settingsProvider.isDark? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 3,
         ),
         Expanded(
@@ -184,7 +190,7 @@ class QuranTap extends StatelessWidget {
                 onTap: () => Navigator.of(context).pushNamed(
                   QuranContent.routeName,
                   arguments:
-                      SuraContentArgs(suraName: suraNames[index], index: index),
+                      SuraContentArgs(suraName: suraNames[index], index: index), 
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
