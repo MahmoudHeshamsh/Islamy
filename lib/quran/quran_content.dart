@@ -35,6 +35,8 @@ class _QuranContentState extends State<QuranContent> {
           appBar: AppBar(
             title: Text(
               suraContentArgs.suraName,
+              style: Theme.of(context).textTheme.headlineSmall,
+
             ),
           ),
           body: Container(

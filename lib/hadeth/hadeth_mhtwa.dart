@@ -22,6 +22,7 @@ class HadethMhtwa extends StatelessWidget {
           appBar: AppBar(
             title: Text(
               hadethContent.name,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
           body: Container(
