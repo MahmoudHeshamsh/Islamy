@@ -50,6 +50,7 @@ class _HadethTapState extends State<HadethTap> {
                     padding: EdgeInsets.only(bottom: 7.0),
                     child: Text(
                       '${fullHadeth[index].name}',
+                      style: Theme.of(context).textTheme.headlineSmall,
                       textAlign: TextAlign.center,
                     ),
                   ));

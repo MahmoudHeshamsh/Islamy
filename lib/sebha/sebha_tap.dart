@@ -33,11 +33,12 @@ class _SebhaTapState extends State<SebhaTap> {
 
   @override
   Widget build(BuildContext context) {
+    changetasbeh();
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () {
               setState(() {
                 num_of_tasbeh++;
@@ -77,7 +78,7 @@ class _SebhaTapState extends State<SebhaTap> {
           ElevatedButton(
             onPressed: () {
               setState(() {
-                if (tasbeeh_index < tasbeeh.length-1) {
+                if (tasbeeh_index < tasbeeh.length - 1) {
                   tasbeeh_index++;
                 } else {
                   tasbeeh_index = 0;
@@ -98,5 +99,15 @@ class _SebhaTapState extends State<SebhaTap> {
         ],
       ),
     );
+  }
+
+  void changetasbeh() {
+    if (num_of_tasbeh != 0) {
+      setState(() {
+        if (num_of_tasbeh % 33 == 0) {
+          tasbeeh_index++;
+        }
+      });
+    }
   }
 }
