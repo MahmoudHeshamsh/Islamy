@@ -4,6 +4,8 @@ import 'package:islam/quran/quran_tap.dart';
 import 'package:islam/radio/radio_tap.dart';
 import 'package:islam/sebha/sebha_tap.dart';
 import 'package:islam/settings/settings_tap.dart';
+import 'package:islam/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home_screen';
@@ -31,10 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/backgroundimage.png'),
+          image: AssetImage('assets/images/${settingsProvider.backgroundImage}'),
           fit: BoxFit.fill
           ),
         

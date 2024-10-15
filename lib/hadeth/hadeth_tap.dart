@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islam/hadeth/hadeth_content.dart';
 import 'package:islam/hadeth/hadeth_mhtwa.dart';
+import 'package:islam/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class HadethTap extends StatefulWidget {
   @override
@@ -13,6 +15,9 @@ class _HadethTapState extends State<HadethTap> {
   List<HadethContent> fullHadeth = [];
   @override
   Widget build(BuildContext context) {
+  SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
+
     if (fullHadeth.isEmpty) {
       loadFile();
     }
