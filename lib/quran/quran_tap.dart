@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:islam/quran/quran_content.dart';
+import 'package:islam/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:islam/app_theme.dart';
+
 
 class QuranTap extends StatelessWidget {
   List<String> suraNames = [
@@ -136,6 +140,8 @@ class QuranTap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     return Column(
       children: [
         Image.asset(
@@ -144,25 +150,22 @@ class QuranTap extends StatelessWidget {
         ),
         Divider(
           height: 10,
-          color: Theme.of(context).primaryColor,
+          color: settingsProvider.isDark? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 3,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.09,
-              ),
+                padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width * 0.09,),
+
               child: Text(
                 'عدد الآيات',
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.09,
-              ),
+              padding: EdgeInsetsDirectional.only(end: MediaQuery.of(context).size.width * 0.09,),
               child: Text(
                 'إسم السورة',
                 style: Theme.of(context).textTheme.headlineSmall,
@@ -172,25 +175,24 @@ class QuranTap extends StatelessWidget {
         ),
         Divider(
           height: 10,
-          color: Theme.of(context).primaryColor,
+          color: settingsProvider.isDark? AppTheme.gold : AppTheme.lightPrimary,
           thickness: 3,
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.only(
-                right: MediaQuery.of(context).size.width * 0.15, top: 5.0),
+             padding: EdgeInsetsDirectional.only(end: MediaQuery.of(context).size.width * 0.15, top: 5.0),
             child: ListView.separated(
               itemBuilder: (_, index) => InkWell(
                 onTap: () => Navigator.of(context).pushNamed(
                   QuranContent.routeName,
                   arguments:
-                      SuraContentArgs(suraName: suraNames[index], index: index),
+                      SuraContentArgs(suraName: suraNames[index], index: index), 
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
+              padding: EdgeInsetsDirectional.only(start: MediaQuery.of(context).size.width * 0.15, top: 5.0),
                       child: Text(
                         num_ayat[index],
                         style: Theme.of(context).textTheme.headlineSmall,

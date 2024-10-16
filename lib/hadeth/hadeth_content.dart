@@ -3,4 +3,5 @@ class HadethContent {
   List<String> content;
 
   HadethContent({required this.name, required this.content});
+
 }

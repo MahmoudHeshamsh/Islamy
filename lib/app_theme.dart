@@ -16,6 +16,7 @@ class AppTheme {
       unselectedItemColor: white,
     ),
     appBarTheme: AppBarTheme(
+      foregroundColor: gold,
       backgroundColor: Colors.transparent,
       centerTitle: true,
       titleTextStyle: TextStyle(
@@ -51,5 +52,47 @@ class AppTheme {
 
   );
 
-  static ThemeData darkTheme = ThemeData();
+  static ThemeData darkTheme = ThemeData(
+    primaryColor: darkPrimary,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: darkPrimary,
+      type: BottomNavigationBarType.fixed,
+      selectedItemColor: gold,
+      unselectedItemColor: white,
+    ),
+    appBarTheme: AppBarTheme(
+      foregroundColor:white,
+      backgroundColor: Colors.transparent,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 30.0,
+        fontWeight: FontWeight.bold,
+        color: black,
+      )
+    ),
+    scaffoldBackgroundColor: Colors.transparent,
+    textTheme: TextTheme(
+      headlineSmall: TextStyle(
+        fontSize: 25,
+        fontWeight: FontWeight.w500,
+        color: white,
+      ),
+      titleLarge: TextStyle(
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        color: gold,
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: darkPrimary,    
+      )
+    ),
+    iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+        iconColor: MaterialStateProperty.all(darkPrimary),
+        iconSize: MaterialStateProperty.all(35.0),
+      )
+    ),
+  );
 }

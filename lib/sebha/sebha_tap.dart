@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islam/app_theme.dart';
+import 'package:islam/settings/settings_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTap extends StatefulWidget {
   @override
@@ -33,6 +36,8 @@ class _SebhaTapState extends State<SebhaTap> {
 
   @override
   Widget build(BuildContext context) {
+    SettingsProvider settingsProvider = Provider.of<SettingsProvider>(context);
+
     changetasbeh();
     return Center(
       child: Column(
@@ -45,7 +50,7 @@ class _SebhaTapState extends State<SebhaTap> {
               });
             },
             child: Image(
-              image: AssetImage('assets/images/tsbeeh.png'),
+              image: AssetImage('assets/images/${settingsProvider.sebhaImage}'),
               height: MediaQuery.of(context).size.height * 0.40,
             ),
           ),
@@ -67,7 +72,7 @@ class _SebhaTapState extends State<SebhaTap> {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 214, 183, 139),
+                backgroundColor: Theme.of(context).primaryColor,
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25))),
