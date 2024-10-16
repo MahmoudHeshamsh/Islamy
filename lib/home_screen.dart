@@ -48,7 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            AppLocalizations.of(context)!.islamy
+            AppLocalizations.of(context)!.islamy,
+            style: Theme.of(context).textTheme.headlineSmall,
           ),
         ),
         body: tabs[current_Index],

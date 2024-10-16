@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islam/settings/language.dart';
 import 'package:islam/settings/settings_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SettingsTap extends StatelessWidget {
   List<Language> languages = [
@@ -22,7 +24,7 @@ class SettingsTap extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Dark Mode',
+                AppLocalizations.of(context)!.dark_mode,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               Switch(
@@ -43,7 +45,7 @@ class SettingsTap extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Language',
+                AppLocalizations.of(context)!.language,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
               DropdownButton<Language>(
